@@ -1,0 +1,54 @@
+---
+subject: My Other Newsletter Email Template Subject
+description: Description goes here
+---
+
+<container>
+
+  <!-- Begin Hero Card -->
+  <row class="hero card" mc:hideable>
+    <columns>
+        <h1 class="text-center"><strong>Empowered</strong> Updates</h1>
+        <h6 mc:edit="volume-number" class="text-center volume-heading">Volume <span class="volume-number">1</span></h6>
+        <p mc:edit="lead-in-sentence" class="text-center lead-in">Lead in sentance here!</p>
+        <p mc:edit="summary" class="text-center">This is where we can talk about what the theme of this newsletter is going to be about. Talk about different product updates and other PR stuff.</p>
+    </columns>
+  </row>
+  <!-- End Hero Card -->
+
+  {{#list 2}}
+  <!-- Begin Big Card -->
+  <row class="card big-card" mc:hideable mc:repeatable>
+    <columns>
+      <center>
+        <img mc:edit src="assets/img/sexual-health-test-lg-2-blog.png">
+      </center>
+      <h1 mc:edit="bc-header-{{@index}}" class="text-center"><strong>Introducing</strong> the Sexual Health Test</h1>
+      <p mc:edit="bc-body-{{@index}}" class="text-center">
+        This is where we can talk about what the theme of this newsletter is going to be about. Talk about different product updates and other PR stuff.
+      </p>
+      <center>
+        <button mc:edit="bc-button-{{@index}}" href="#" class="large">Check it Out</button>
+      </center>
+    </columns>
+  </row>
+  <!-- End Big Card -->
+  {{/list}}
+
+  {{#list 3}}
+  <!-- Begin Small Card -->
+  <row class="card small-card" mc:hideable mc:repeatable>
+    <columns mc:edit class="image-container" large="4" small="4" valign="middle">
+      <img src="http://placehold.it/200x200" alt="">
+    </columns>
+    <columns large="8" small="8" valign-"middle">
+      <h4 mc:edit="sc-header-{{@index}}" class="text-left"><strong>Title Here</strong></h4>
+      <p mc:edit="sc-body-{{@index}}" class="text-left">A bunch of stuff goes here that we want to showcase. Small preview…</p>
+      <spacer size="30"></spacer>
+      <a mc:edit="sc-button-{{@index}}" href="#" class="text-left text-link small" valign="bottom"><small>Read more >></small></a>
+    </columns>
+  </row>
+  <!-- End Small Card -->
+  {{/list}}
+
+</container>

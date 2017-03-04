@@ -1,0 +1,18 @@
+.primary-text { color: $primary-color; }
+.primary-bg { background-color: $primary-color; }
+
+.secondary-text { color: $secondary-color; }
+.secondary-bg { background-color: $secondary-color; }
+
+@media only screen and (max-width: 600px) {
+/* I apply the .responsive-image class to any wrapping table where I want 100% rather than auto */
+table.body table.responsive-image img {
+    width: 100% !important; height: auto !important;
+  }
+}
+
+.text-link {
+  color: $secondary-color;
+  font-weight: 400;
+  margin-top: $global-margin;
+}

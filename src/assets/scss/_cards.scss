@@ -1,0 +1,28 @@
+$card-background: $white;
+
+.card {
+  background-color: $card-background;
+  margin-bottom: $global-margin;
+
+  .columns { padding: $global-padding; }
+}
+
+// Big Card Styles
+.big-card {
+  img {
+    margin-bottom: $global-padding;
+  }
+  p {
+    padding-top: $global-padding / 2;
+  }
+}
+
+// Small Card Styles
+.small-card {
+  h4 {
+    margin-bottom: 10px;
+  }
+  .image-container {
+    padding-right: 0;
+  }
+}

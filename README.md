@@ -1,127 +1,124 @@
-# [Foundation for Emails](http://foundation.zurb.com/emails)
+# Foundation for Emails Template
 
-[![npm version badge](https://img.shields.io/npm/v/foundation-emails.svg)](https://www.npmjs.org/package/foundation-emails)
-[![downloads badge](http://img.shields.io/npm/dm/foundation-emails.svg)](https://www.npmjs.org/package/foundation-emails)
-[![Gem Version](https://badge.fury.io/rb/foundation_emails.svg)](https://badge.fury.io/rb/foundation_emails)
-[![downloads badge](http://img.shields.io/npm/l/foundation-emails.svg)](https://www.npmjs.org/package/foundation-emails)
-[![CDNJS](https://img.shields.io/cdnjs/v/foundation-emails.svg)](https://cdnjs.com/libraries/foundation-emails)
+[![devDependency Status](https://david-dm.org/zurb/foundation-emails-template/dev-status.svg)](https://david-dm.org/zurb/foundation-emails-template#info=devDependencies)
 
+**Please open all issues with this template on the main [Foundation for Emails](http://github.com/zurb/foundation-emails/issues) repo.**
 
-Foundation for Emails (previously known as Ink) is a framework for creating responsive HTML emails that work in any email client &mdash; even Outlook. Our HTML/CSS components have been tested across every major email client to ensure consistency. And with the [Inky](https://github.com/zurb/inky) templating language, writing HTML emails is now even easier.
+This is the official starter project for [Foundation for Emails](http://foundation.zurb.com/emails), a framework for creating responsive HTML devices that work in any email client. It has a Gulp-powered build system with these features:
 
-## Getting Started
+- Handlebars HTML templates with [Panini](http://github.com/zurb/panini)
+- Simplified HTML email syntax with [Inky](http://github.com/zurb/inky)
+- Sass compilation
+- Image compression
+- Built-in BrowserSync server
+- Full email inlining process
 
-The main way to get started is with our [email template stack](https://github.com/zurb/foundation-emails-template). To use the stack, you'll need [Node.js](https://nodejs.org/en/) installed on your machine.
+## Installation
 
-To set up the emails template, run these commands:
+To use this template, your computer needs [Node.js](https://nodejs.org/en/) 0.12 or greater. The template can be installed with the Foundation CLI, or downloaded and set up manually.
+
+### Using the CLI
+
+Install the Foundation CLI with this command:
 
 ```bash
-git clone https://github.com/zurb/foundation-emails-template project
-cd project
+npm install foundation-cli --global
+```
+
+Use this command to set up a blank Foundation for Emails project:
+
+```bash
+foundation new --framework emails
+```
+
+The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
+
+### Manual Setup
+
+To manually set up the template, first download it with Git:
+
+```bash
+git clone https://github.com/zurb/foundation-emails-template projectname
+```
+
+Then open the folder in your command line, and install the needed dependencies:
+
+```bash
+cd projectname
 npm install
 ```
 
-Then run `npm start` to run the project. A new browser window will open with a BrowserSync server showing the finished files.
+## Build Commands
 
-Run `npm run build` to do a full email inlining process.
+Run `npm start` to kick off the build process. A new browser tab will open with a server pointing to your project files.
 
+Run `npm run build` to inline your CSS into your HTML along with the rest of the build process.
 
-#### Using the Ruby gem
+Run `npm run litmus` to build as above, then submit to litmus for testing. *AWS S3 Account details required (config.json)*
 
-**foundation_emails** is a gem that enables you to use Foundation for Emails assets within a Rails project. To install in your app:
+Run `npm run mail` to build as above, then send to specified email address for testing. *SMTP server details required (config.json)*
 
-1. Add the following line to your Gemfile:
+Run `npm run zip` to build as above, then zip HTML and images for easy deployment to email marketing services. 
 
-  ```ruby
-  gem 'foundation_emails'
-  ```
+## Litmus Tests (config.json)
 
-2. Then execute:
+Testing in Litmus requires the images to be hosted publicly. The provided gulp task handles this by automating hosting to an AWS S3 account. Provide your Litmus and AWS S3 account details in the `example.config.json` and then rename to `config.json`. Litmus config, and `aws.url` are required, however if you follow the [aws-sdk suggestions](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html) you don't need to supply the AWS credentials into this JSON.
 
-  ```bash
-  bundle install
-  ```
-
-3. Import Foundation for Emails in your emails' stylesheet(s):
-
-  ```scss
-  // app/assets/stylesheets/your_emails_stylesheet.scss
-
-  @import "foundation-emails";
-  ```
-
-Adding Inky's templating capabilities to Rails is easy thanks to the [**inky-rb**](https://github.com/zurb/inky-rb) gem, which bundles `foundation_emails` by default.
-
-## Documentation
-
-**Check out our [Migration Guide](https://github.com/zurb/foundation-emails/blob/master/migration.md) for upgrading an existing template or for more in-depth code examples.**
-
-Foundation for Emails 2.0 documentation and framework are on the `develop` branch and you can compile it on your own machine.
-
-Run these commands to set up the documentation:
-
-```bash
-git clone https://github.com/zurb/foundation-emails.git
-cd foundation-emails
+```json
+{
+  "aws": {
+    "region": "us-east-1",
+    "accessKeyId": "YOUR_ACCOUNT_KEY",
+    "secretAccessKey": "YOUR_ACCOUNT_SECRET",
+    "params": {
+        "Bucket": "elasticbeanstalk-us-east-1-THIS_IS_JUST_AN_EXAMPLE"
+    },
+    "url": "https://s3.amazonaws.com/elasticbeanstalk-us-east-1-THIS_IS_JUST_AN_EXAMPLE"
+  },
+  "litmus": {
+    "username": "YOUR_LITMUS@EMAIL.com",
+    "password": "YOUR_ACCOUNT_PASSWORD",
+    "url": "https://YOUR_ACCOUNT.litmus.com",
+    "applications": ["ol2003","ol2007","ol2010","ol2011","ol2013","chromegmailnew","chromeyahoo","appmail9","iphone5s","ipad","android4","androidgmailapp"]
+  }
+}
 ```
 
-Foundation for Emails 2.0 documentation is on the `develop` branch.
+## Manual email tests (config.json)
 
-```bash
-git fetch
-git checkout develop
-npm install
+Similar to the Litmus tests, you can have the emails sent to a specified email address. Just like with the Litmus tests, you will need to provide AWS S3 account details in `config.json`. You will also need to specify to details of an SMTP server. The email address to send to emails to can either by configured in the `package.json` file or added as a parameter like so: `npm run mail -- --to="example.com"`
+
+```json
+{
+  "aws": {
+    "region": "us-east-1",
+    "accessKeyId": "YOUR_ACCOUNT_KEY",
+    "secretAccessKey": "YOUR_ACCOUNT_SECRET",
+    "params": {
+        "Bucket": "elasticbeanstalk-us-east-1-THIS_IS_JUST_AN_EXAMPLE"
+    },
+    "url": "https://s3.amazonaws.com/elasticbeanstalk-us-east-1-THIS_IS_JUST_AN_EXAMPLE"
+  },
+  "mail": {
+    "to": [
+      "example@domain.com"
+    ],
+    "from": "Company name <info@company.com",
+    "smtp": {
+      "auth": {
+        "user": "example@domain.com",
+        "pass": "12345678"
+      },
+      "host": "smtp.domain.com",
+      "secureConnection": true,
+      "port": 465
+    }
+  }
+}
 ```
 
-Then run `npm start` to compile the documentation. When it finishes, a new browser window will open pointing to a BrowserSync server displaying the documentation.
+For a full list of Litmus' supported test clients(applications) see their [client list](https://litmus.com/emails/clients.xml).
 
-## Testing
+**Caution:** AWS Service Fees will result, however, are usually very low do to minimal traffic. Use at your own discretion.
 
-Run `npm run test:visual` to compile the visual regression tests. All of the pages under `test/visual/pages` are compiled and inlined. From there, they can be uploaded to Litmus for testing.
 
-## Inky
-
-[Inky](https://github.com/zurb/inky) is our new templating language that converts simple HTML into the complex tables required for email layout.
-
-The parser converts a set of custom HTML tags, expanding them out into full HTML syntax. Below is a list of every custom element.
-
-### Grid
-
-```html
-<container>
-  <row>
-    <column small="12" large="4"></column>
-    <column small="12" large="8"></column>
-  </row>
-</container>
-```
-
-### Block Grid
-
-```html
-<block-grid up="3">
-  <td></td>
-  <td></td>
-  <td></td>
-</block-grid>
-```
-
-### Components
-
-```html
-<button href="http://zurb.com"></button>
-```
-
-```html
-<menu>
-  <item href="one.html">Item One</item>
-  <item href="one.html">Item Two</item>
-  <item href="one.html">Item Three</item>
-</menu>
-```
-
-## Contributing
-
-As an open source project, we looooove our community support. Please file issues, or better yet pull requests on the [Foundation for Emails Repo](https://github.com/zurb/foundation-emails). We're stoked to hear your feedback, make improvements, and keep evolving Foundation for Emails!
-
-Copyright (c) 2017 ZURB, inc.
