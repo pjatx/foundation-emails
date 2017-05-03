@@ -1,0 +1,26 @@
+{
+  "aws": {
+    "region": "us-west-2",
+    "accessKeyId": "AKIAJHOWFFFPWHMJXHLQ",
+    "secretAccessKey": "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",
+    "params": {
+        "Bucket": "everlywell-email"
+    },
+    "url": "https://s3.amazonaws.com/everlywell-email"
+  },
+  "mail": {
+    "to": [
+      "philip@everlywell.com"
+    ],
+    "from": "EverlyWell <contact@everlywell.com",
+    "smtp": {
+      "auth": {
+        "user": "contact@everlywell.com",
+        "pass": "_L0AADYEFOhIjWbutPbfRw"
+      },
+      "host": "smtp.mandrillapp.com",
+      "secureConnection": false,
+      "port": 587
+    }
+  }
+}

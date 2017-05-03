@@ -1,0 +1,20 @@
+---
+layout: transactional
+subject: Your Order Has Been Cancelled
+---
+
+<container>
+  <row class='card' mc:edit>
+    <columns class="small-text-center">
+      <p class="small-text-center">This is just a friendly note confirming your EverlyWell order has been successfully cancelled and the card that was used to place the order has also been refunded the full amount.</p>
+      <spacer size="30"></spacer>
+      <p class="small-text-center">If you have any questions, please feel free to contact support by simply replying to this email.</p>
+      <spacer size="30"></spacer>
+      <hr />
+      <spacer size="30"></spacer>
+      <p class="small-text-center"><strong>Order Number: </strong>*|ORDER_NUMBER|*</p>
+      <br />
+      <p class="small-text-center"><strong>Amount Refunded: </strong>*|REFUND_TOTAL|*</p>
+    </columns>
+  </row>
+</container>

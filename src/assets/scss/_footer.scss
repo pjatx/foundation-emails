@@ -3,7 +3,6 @@
 
   .support-links {
     color: $dark-gray;
-    margin-bottom: $global-margin;
   }
   .support-links a {
     color: $dark-gray;
@@ -12,11 +11,8 @@
   }
   .social-links img {
     height: 20px;
-    margin-bottom: $global-margin;
   }
   .can-spam {
-    margin-bottom: $global-margin;
-
     a {
       text-decoration: underline;
     }

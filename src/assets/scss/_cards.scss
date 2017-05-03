@@ -3,6 +3,7 @@ $card-background: $white;
 .card {
   background-color: $card-background;
   margin-bottom: $global-margin;
+  border: 1px solid darken($container-background, 2%);
 
   .columns { padding: $global-padding; }
 }
