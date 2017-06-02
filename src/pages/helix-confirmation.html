@@ -1,0 +1,31 @@
+---
+layout: helix-transactional
+subject: Congratulations! You've successfully created your EverlyWell account
+---
+
+<container>
+  <row class='card'>
+    <columns>
+      *|IF:FNAME|*
+      <p>Hi <span class="bold">*|FNAME|*,</span></p>
+      <spacer size="30"></spacer>
+      <p>Congratulations! You've successfully created an EverlyWell account.</p>
+      *|ELSE:|*
+      <p>Congratulations! You've successfully created an EverlyWell account.</p>
+      *|END:IF|*
+      <spacer size="30"></spacer>
+      <p>You'll get another email when we ship your EverlyWell companion kit (1-2 business days). In the meantime, if you'd like to check on the status of your order click the button below.</p>
+      <center>
+        <button class="large radius" href="https://www.everlywell.com/orders?utm_source=trans&amp;utm_campaign=order_confirmation&amp;utm_medium=email">Check Your Order Status</button>
+      </center>
+      <spacer size="30"></spacer>
+      <p>If you have any questions, feel free to respond to this email and we'd be happy to answer them.</p>
+      <spacer size="30"></spacer>
+      <p>Best,
+        <br />
+      The EverlyWell Team
+      </p>
+        <spacer size="15"></spacer>
+    </columns>
+  </row>
+</container>

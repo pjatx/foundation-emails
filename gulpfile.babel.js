@@ -38,6 +38,10 @@ gulp.task('litmus',
 gulp.task('mail',
   gulp.series('build', creds, aws, mail));
 
+// Build emails, then upload assets to aws
+gulp.task('aws',
+  gulp.series('build', creds, aws));
+
 // Build emails, then zip
 gulp.task('zip',
   gulp.series('build', zip));

@@ -1,0 +1,31 @@
+---
+layout: transactional
+subject: One Last Step to Commplete Your Subscription
+---
+
+<container>
+  <row class='card'>
+    <columns>
+      *|IF:FNAME|*
+      <p>Hi <span class="bold">*|FNAME|*,</span></p>
+      <spacer size="30"></spacer>
+      <p>Our partner lab needs a few more personal details before we're able to create your order.</p>
+      *|ELSE:|*
+      <p>Our partner lab needs a few more personal details before we're able to create your order.</p>
+      *|END:IF|*
+      <spacer size="30"></spacer>
+      <p>Please complete the (extremely short) registration process when convenient and we'll immediately send you your first kit.</p>
+      <center>
+        <button class="large radius" href="*|REGISTRATION_URL|*&amp;utm_source=trans&amp;utm_campaign=registration_reminder&amp;utm_medium=email">Regsiter Your Subscription</button>
+      </center>
+      <spacer size="30"></spacer>
+      <p>If you have any questions about the registration process, feel free to respond to this email and we'd be happy to answer them.</p>
+      <spacer size="30"></spacer>
+      <p>Best,
+        <br />
+      The EverlyWell Team
+      </p>
+        <spacer size="15"></spacer>
+    </columns>
+  </row>
+</container>

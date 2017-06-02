@@ -98,6 +98,17 @@ th.large-4 {
 th.large-4.first {
   padding-left: 32px; }
 
+th.large-6 {
+  width: 258px;
+  padding-left: 16px;
+  padding-right: 16px; }
+
+th.large-6.first {
+  padding-left: 32px; }
+
+th.large-6.last {
+  padding-right: 32px; }
+
 th.large-8 {
   width: 354.66667px;
   padding-left: 16px;
@@ -139,6 +150,14 @@ p.text-left {
 @media only screen and (max-width: 612px) {
   .small-text-center {
     text-align: center !important; } }
+
+img.float-left {
+  float: left;
+  text-align: left; }
+
+img.float-right {
+  float: right;
+  text-align: right; }
 
 img.float-center,
 img.text-center {
@@ -403,3 +422,7 @@ table.menu.text-center a {
 .e-logo {
   width: 40px !important;
   height: 60px; }
+
+.helix-logo {
+  width: 98px !important;
+  height: 25px !important; }

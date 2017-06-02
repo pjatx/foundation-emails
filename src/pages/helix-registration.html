@@ -1,0 +1,33 @@
+---
+layout: helix-transactional
+subject: One last step to complete your Helix and EverlyWell purchase
+---
+
+<container>
+  <row class='card'>
+    <columns>
+      *|IF:FNAME|*
+      <p>Hi <span class="bold">*|FNAME|*,</span></p>
+      <spacer size="30"></spacer>
+      <p>Thanks for choosing [Product Name] through the Helix Marketplace!</p>
+      *|ELSE:|*
+      <p>Thanks for choosing [Product Name] through the Helix Marketplace!</p>
+      *|END:IF|*
+      <spacer size="30"></spacer>
+      <p>We're excited to welcome you to the EverlyWell community and join you on your journey to improved wellness. There's only one last step you need to complete before we can drop your companion EverlyWell kit in the mail.</p>
+      <spacer size="30"></spacer>
+      <p>Simply click the link below to create your EverlyWell account and complete the process. Don't worry, it will only take a few seconds!</p>
+      <center>
+        <button class="large radius" href="*|REGISTRATION_URL|*&amp;utm_source=trans&amp;utm_campaign=registration_reminder&amp;utm_medium=email">Create Your Account</button>
+      </center>
+      <spacer size="30"></spacer>
+      <p>If you have any questions about this process, feel free to respond to this email and we'd be happy to help.</p>
+      <spacer size="30"></spacer>
+      <p>Best,
+        <br />
+      The EverlyWell Team
+      </p>
+        <spacer size="15"></spacer>
+    </columns>
+  </row>
+</container>
